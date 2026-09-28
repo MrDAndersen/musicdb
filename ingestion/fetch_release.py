@@ -5,7 +5,7 @@ from ingestion.discogs_client import get_discogs_client
 def fetch_release(release_id: int, retries=3):
     # Validate input - release_id must be a positive integer
     if not isinstance(release_id, int) or release_id <= 0:
-        return None
+        raise ValueError("Not a valid release id")
     
     d = get_discogs_client()
     
